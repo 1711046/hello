@@ -22,6 +22,8 @@ for (let index = 0; index < 25; index++) {
     }
     a1.delete()
 }
+p.delete()
+basic.showString("win")
 basic.forever(function () {
     music.playMelody("D G A B C5 B C5 C5 ", 120)
     serial.writeNumber(sonar.ping(
