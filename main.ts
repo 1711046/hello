@@ -6,12 +6,19 @@ input.onButtonPressed(Button.B, function () {
 })
 let a1: game.LedSprite = null
 let p: game.LedSprite = null
+let marks = 0
 p = game.createSprite(2, 4)
-for (let index = 0; index < 20; index++) {
+for (let index = 0; index < 25; index++) {
     a1 = game.createSprite(randint(0, 4), 0)
     for (let index = 0; index < 4; index++) {
         a1.change(LedSpriteProperty.Y, 1)
-        basic.pause(200)
+        marks += 1
+        if (a1.isTouching(p)) {
+            p.delete()
+            basic.showString("game over")
+            basic.showString("" + (marks))
+        }
+        basic.pause(250)
     }
     a1.delete()
 }
